@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+@source inline('rounded-r-full');
+@theme {
+    --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --color-main: #5FA8D3 ;
+    --color-main-2: #4b9dce ;
+    --color-delete: #D35F5F;
+    --color-delete-2: #4b9dce ;
+}
+
+@theme {
+    /* Primary (Main Brand) */
+    --color-primary: #5A7CA5;        /* Muted desaturated blue */
+    --color-primary-hover: #4A6788;  /* Darker muted blue */
+
+    /* Accent (for highlights or links) */
+    --color-accent: #A4B8C4;         /* Soft steel gray-blue */
+    --color-accent-hover: #93A6B3;
+
+    /* Danger */
+    --color-danger: #C97A7A;         /* Warm muted red-brown */
+    --color-danger-hover: #B06666;
+
+    /* Success */
+    --color-success: #88A999;        /* Soft sage green */
+    --color-success-hover: #769482;
+
+    /* Warning */
+    --color-warning: #D6B56B;        /* Muted ochre gold */
+    --color-warning-hover: #BFA05C;
+
+    /* Backgrounds */
+    --color-bg-primary: #F5F6F7;     /* Light cool gray */
+    --color-bg-secondary: #FFFFFF;   /* White for cards/forms */
+    --color-bg-muted: #E8EBEE;       /* For subtle sections */
+
+    /* Text */
+    --color-text-primary: #2F3A4A;   /* Deep slate gray */
+    --color-text-secondary: #6C7A89; /* Muted cool gray */
+
+    /* Borders */
+    --color-border-primary: #D1D5DA; /* Light muted gray */
+
+    /* Shadows (soft and spread out) */
+    --shadow-soft: 0 2px 6px rgba(47, 58, 74, 0.05);
+    --shadow-medium: 0 4px 12px rgba(47, 58, 74, 0.08);
+}
+
+
+
+
+:root {
+    /* Brand Colors */
+    --color-primary: #5A7CA5;         /* Muted navy blue */
+    --color-primary-hover: #4A6788;   /* Darker muted navy */
+
+    /* Accent */
+    --color-accent: #A4B8C4;          /* Steel blue-gray */
+    --color-accent-hover: #93A6B3;
+
+    /* Semantic */
+    --color-danger: #C97A7A;          /* Soft red-brown */
+    --color-danger-hover: #B06666;
+    --color-success: #88A999;         /* Sage green */
+    --color-success-hover: #769482;
+    --color-warning: #D6B56B;         /* Ochre gold */
+    --color-warning-hover: #BFA05C;
+
+    /* Backgrounds */
+    --color-bg-primary: #F5F6F7;      /* Light cool gray */
+    --color-bg-secondary: #FFFFFF;    /* White for cards */
+    --color-bg-muted: #E8EBEE;        /* For subtle sections */
+
+    /* Text */
+    --color-text-primary: #2F3A4A;    /* Deep slate gray */
+    --color-text-secondary: #6C7A89;  /* Muted cool gray */
+
+    /* Borders */
+    --color-border-primary: #D1D5DA;
+
+    /* Shadows */
+    --shadow-soft: 0 2px 6px rgba(47, 58, 74, 0.05);
+    --shadow-medium: 0 4px 12px rgba(47, 58, 74, 0.08);
+}
+[data-theme="dark"] {
+    /* Brand Colors */
+    --color-primary: #7EA1C4;         /* Softer muted blue */
+    --color-primary-hover: #6A8BAD;   /* Slightly deeper */
+
+    /* Accent */
+    --color-accent: #A4B8C4;          /* Steel blue-gray */
+    --color-accent-hover: #93A6B3;
+
+    /* Semantic */
+    --color-danger: #D49A9A;          /* Warm muted red */
+    --color-danger-hover: #C18383;
+    --color-success: #9FBDAF;         /* Muted sage */
+    --color-success-hover: #8BA99A;
+    --color-warning: #E0C47A;         /* Muted golden */
+    --color-warning-hover: #CBB06B;
+
+    /* Backgrounds */
+    --color-bg-primary: #1E242C;      /* Dark slate */
+    --color-bg-secondary: #252C36;    /* Card background */
+    --color-bg-muted: #2F3742;        /* Section background */
+
+    /* Text */
+    --color-text-primary: #E6E9ED;    /* Off-white */
+    --color-text-secondary: #A0AAB8;  /* Muted cool gray */
+
+    /* Borders */
+    --color-border-primary: #3E4652;
+    --color-border-secondary: #626f81;
+
+    /* Shadows */
+    --shadow-soft: 0 2px 6px rgba(0, 0, 0, 0.3);
+    --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+
+.category-btn-active{
+    @apply border-b-border-primary border-b-2 pb-2 text-text-primary;
+}
+.category-btn-inactive{
+    @apply border-b-border-primary pb-2;
+}
+
+.card{
+    @apply p-5  rounded-xl
+    bg-bg-secondary/48 backdrop-blur-xl backdrop-saturate-150 border-b-border-primary shadow-sm overflow-hidden;
+}
+
+.success{
+    @apply bg-success text-bg-primary;
+}
+.error{
+    @apply bg-danger text-bg-primary;
+}
+.warning{
+    @apply bg-warning text-text-primary;
+}
+.info{
+    @apply bg-primary text-bg-primary;
+}
+
