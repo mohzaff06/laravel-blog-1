@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\EmailVerificationController;
+use App\Http\Controllers\Auth\NewPasswordController;
+use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredController;
 use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\CommentController;
@@ -25,11 +27,14 @@ Route::delete('/post/{post}', [PostController::class, 'destroy'])
 
 
 
-Route::post('/api/post/{post}/create', [CommentController::class, 'store'])->middleware('auth');
+Route::post('/api/post/{post}/create', [CommentController::class, 'store'])
+    ->middleware('auth');
+
 Route::delete('/api/comment/{comment}', [CommentController::class, 'destroy'])
     ->middleware('auth')
     ->name('comments.delete')
     ->can('delete', 'comment');
+
 Route::put('/api/comment/{comment}', [CommentController::class, 'update'])
     ->middleware('auth')
     ->name('comments.update')
@@ -64,3 +69,21 @@ Route::get('/email/verify/{id}/{hash}', [EmailVerificationController::class, 've
 Route::post('/email/verification-notification', [EmailVerificationController::class, 'send'])
     ->middleware(['auth', 'throttle:2,1'])
     ->name('verification.send');
+
+
+
+Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
+    ->middleware('guest')
+    ->name('password.request');
+
+Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
+    ->middleware('guest')
+    ->name('password.email');
+
+Route::get('/reset-password/{token}', [NewPasswordController::class, 'create'])
+    ->middleware('guest')
+    ->name('password.reset');
+
+Route::post('/reset-password', [NewPasswordController::class, 'store'])
+    ->middleware('guest')
+    ->name('password.update');

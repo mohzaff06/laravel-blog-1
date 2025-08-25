@@ -1,7 +1,8 @@
 <x-layout>
     <div class="container mx-auto flex flex-col max-w-lg items-center card">
-        <x-header-title>Reset Password</x-header-title>
-        <x-form.form action="/reset-password" method="POST">
+        <x-header-title>Forgot Password</x-header-title>
+        <x-form.form action="/forgot-password" method="POST">
+            @csrf
             <x-form.input name="email" label="Email: "/>
             <x-button type="submit" value="Send Email" tag="input" rounded="4xl"
                       class="h-12 items-center flex w-3xs mt-5"/>

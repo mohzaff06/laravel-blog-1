@@ -1,4 +1,4 @@
-<nav class="sticky top-3 left-0 right-0 z-50 mb-8 self-center-safe w-full">
+<nav class="sticky top-3 left-0 right-0 z-50 mb-12 self-center-safe w-full">
     <div class="mx-4 sm:mx-8 md:mx-16 lg:mx-36">
         <div class="rounded-2xl border border-border-primary
                 bg-bg-secondary/50 backdrop-blur-xl backdrop-saturate-150
