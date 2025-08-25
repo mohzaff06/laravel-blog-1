@@ -5,8 +5,9 @@
         <input class="rounded-2xl px-4 py-2 border-border-primary border-1 w-full h-14" type="text"
                id="search-input"
                placeholder="I'm looking for...">
-        <x-button rounded="full" class="px-3 py-1 h-11 w-11 items-center flex absolute right-2">
-            <x-icons.search-icon/>
-        </x-button>
+        <button class="transition duration-300 cursor-pointer hover:text-bg-secondary text-text-primary
+                bg-primary/40 border-primary/60 border-2 hover:bg-primary-hover
+                px-2 py-1 font-semibold rounded-xl h-11 w-11 items-center flex absolute right-2
+                " id="theme-toggle"><x-icons.search-icon/></button>
     </form>
 </section>

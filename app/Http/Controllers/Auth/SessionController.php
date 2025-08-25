@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
-use App\Models\User;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,6 +19,9 @@ class SessionController extends Controller
         ]);
 
         if(auth()->attempt($validated)){
+            if(!auth()->user()->hasVerifiedEmail()){
+                return toastResponse('success', 'Logged in!', '/email/verify');
+            }
             return toastResponse('success', 'Logged in!', '/');
         }
 

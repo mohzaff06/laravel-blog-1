@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="container mx-auto flex flex-col max-w-lg items-center card">
+    <div class="container mx-auto flex flex-col max-w-4xl items-center card">
         <x-header-title>Edit Post</x-header-title>
         <x-form.form action="/post/{{$post->id}}" method='POST' _method="PUT" enctype="multipart/form-data">
             <x-form.input name="title" label="Title: " value="{{$post->title}}"/>

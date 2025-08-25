@@ -1,11 +1,10 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Auth\EmailVerificationController;
+use App\Http\Controllers\Auth\RegisteredController;
+use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\CommentController;
-use App\Http\Controllers\Controller;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\RegisteredController;
-use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,11 +45,22 @@ Route::middleware('guest')->group(function () {
     Route::get('/login', [SessionController::class, 'index'])->name('login');
     Route::post('/login', [SessionController::class, 'store']);
 });
-Route::get('/forgot-password', [UserController::class, 'forgotPasswordView']);
-Route::post('/reset-password', [UserController::class, 'resetPassword']);
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/create', [PostController::class, 'create']);
     Route::post('/create', [PostController::class, 'store']);
     Route::delete('/logout', [SessionController::class, 'destroy']);
 });
+
+
+
+Route::get('/email/verify', [EmailVerificationController::class, 'notice'])
+    ->middleware('auth')
+    ->name('verification.notice');
+Route::get('/email/verify/{id}/{hash}', [EmailVerificationController::class, 'verify'])
+    ->middleware(['auth', 'signed'])
+    ->name('verification.verify');
+Route::post('/email/verification-notification', [EmailVerificationController::class, 'send'])
+    ->middleware(['auth', 'throttle:2,1'])
+    ->name('verification.send');
